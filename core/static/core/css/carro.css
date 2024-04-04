@@ -1,0 +1,73 @@
+.carro-img {
+    height: 165px;
+}
+
+.carro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carro-row {
+    width: 25%;
+}
+
+.carro-eliminar {
+    background-color: red;
+}
+
+.carro-eliminar:hover {
+    background-color: #ae4444;
+}
+
+.carro-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carro-guardar {
+    background-color: #2183a2;
+}
+
+
+.carro-guardar:hover {
+    background-color: #15566a;
+}
+
+/* Footer*/
+.footer {
+    background-color: rgb(1, 177, 118);
+    padding: 50px;
+}
+
+.footer-col {
+    width: 25%;
+    padding: 0 15px;
+}
+
+.footer-col ul li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a h1 {
+    font-size: 20px;
+    text-transform: capitalize;
+    color: black;
+    text-decoration: none;
+    font-weight: 300;
+    color: black;
+    display: block;
+    transition: all 0.3s ease;
+    text-align: center;
+    color: #ca2521 !important;
+}
+
+.a-botones {
+    color: white;
+    text-decoration: none;
+}
+
+.a-botones:hover {
+    color: white;
+}

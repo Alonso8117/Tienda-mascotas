@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <title>Registro</title>
+        <meta name="description" content="website description" />
+        <meta name="keywords" content="website keywords, website keywords" />
+        <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <!-- Call CSS -->
+        <link rel="stylesheet" href="{% static 'core/css/login.css' %}">
+        <!-- Call CSS -->
+        <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
+        <!-- Call JS -->
+        <script src = {% static "core/js/bootstrap.min.js" %}> </script>
+    </head>
+    <body style="margin-bottom: 150px">
+
+
+<div style="padding: 0 20%">
+    <div class ="col-12 text-center">
+        <h1 id = "titulo" ><img src ="https://image.freepik.com/vector-gratis/petshop-gato-perro_9645-763.jpg" width = "200px"></h1>
+        <h1>Registro</h1>
+    </div>
+    
+        <form id="formulario" action={% url 'crear_usuario' %} method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="for_nombre" class="form-label">Nombre Completo</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" minlength="10" required>
+            </div>
+            <div class="mb-3">
+                <label for="for_rut" class="form-label">RUT</label>
+                <input type="text" class="form-control" id="rut" name="rut" minlength="9" required>
+            </div>
+            <div class="mb-3">
+                <label for="for_telefono" class="form-label">Telefono</label>
+                <input type="text" class="form-control" id="telefono" name="telefono" minlength="10" required>
+            </div>
+            <div class="mb-3">
+                <label for="for_correo" class="form-label">Correo electronico</label>
+                <input type="email" class="form-control" id="correo" name="correo" aria-describedby="correoAyuda">
+                <div id="correoAyuda" class="form-text">Nunca compartiremos tus datos</div>
+            </div>
+            <div class="mb-3">
+                <label for="for_clave" class="form-label">Clave</label>
+                <input type="password" class="form-control" name="clave" id="clave">
+            </div>
+            <div>
+                <button type="submit" value="Registrar" class="btn btn-primary">Registrar</button>
+            </div>
+        </form>
+        <a href={% url "inicio" %}><button class="btn btn-warning" style="margin: 10px">Volver</button><a/>
+    </div>
+</div>
+
+    </body>
+
+
+
+</html>

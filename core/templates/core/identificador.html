@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Identificador</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load static %}
+  <!-- Call CSS -->
+  <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'core/css/identificador.css' %}">
+  <!-- Call CSS -->
+  <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
+  <!-- Call JS -->
+  <script src={% static "core/js/bootstrap.min.js" %}> </script>
+</head>
+
+<body>
+
+  <!--Imagen -->
+  <div>
+    <h1 class="texto"> <img src="https://image.freepik.com/vector-gratis/petshop-gato-perro_9645-763.jpg"
+        width="200">Pet Shop
+  </div>
+
+  <!--Menu-->
+
+  <ul class="menu cf">
+    <li><a href="{% url 'index'%}">Inicio</a></li>
+    <li><a href="">Bandanas</a></li>
+    <li><a href="{% url 'correas'%}">Correas</a></li>
+    <li><a href="{% url 'identificador'%}">Identificacion</a></li>
+    <li><a href="{% url 'historial'%}">Historial</a></li>
+    <li><a href="{% url 'carro'%}">Carro</a></li>
+    <li><a href="">Suscribirse</a></li>
+    <li><a href="{% url 'inicio'%}">Cerrar Sesion</a></li>
+  </ul>
+
+  <!--Tarjetas -->
+
+  <div class="gallery">
+  {% for p in producto %}
+    <div class="content">
+      <img class="imagenes-index" src={{ p.imagen }}>
+      <h3 class="Texto-imagen">{{ p.nom_producto }}</h3>
+        <h6 class="stock">ID: {{p.id_producto}}</h6>
+        <h6 class="stock">Stock: {{p.stock}}</h6>
+        <h6 class="precio">Precio: ${{p.precio}}</h6>
+      <ul>
+        <li class="listas"><i class="fa fa-star" aria-hidden="true"></i></li>
+        <li class="listas"><i class="fa fa-star" aria-hidden="true"></i></li>
+        <li class="listas"><i class="fa fa-star" aria-hidden="true"></i></li>
+        <li class="listas"><i class="fa fa-star" aria-hidden="true"></i></li>
+        <li class="listas"><i class="fa fa-star" aria-hidden="true"></i></li>
+      </ul>
+      <select name="select">
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+        <option value="2">3</option>
+        <option value="2">4</option>
+        <option value="2">5</option>
+      </select>
+
+      <form action="{% url 'agregar_carrito' p.id_producto %}" method="post" id="form">
+            {% csrf_token %}
+            <a ><button class="buy-5">Comprar</button></a>
+        </form>
+    </div>
+
+  {% endfor %}
+  </div>
+
+<!--Footer-->
+<div class = "footer"></div>
+</body>
+
+</html>

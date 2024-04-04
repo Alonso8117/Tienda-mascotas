@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Identificador</title>
+        <meta name="description" content="website description" />
+        <meta name="keywords" content="website keywords, website keywords" />
+        <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <!-- Call CSS -->
+        <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'core/css/bandanas.css' %}">
+        <!-- Call CSS -->
+        <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
+        <!-- Call JS -->
+        <script src = {% static "core/js/bootstrap.min.js" %}> </script>
+    </head>
+
+<body>
+<!--Imagen -->
+<div>
+<h1 class="texto" > <img src="https://image.freepik.com/vector-gratis/petshop-gato-perro_9645-763.jpg"  width="200">Pet Shop
+</div>
+
+<!--Menu-->
+
+<ul class="menu cf">
+    <li><a href="{% url 'index'%}">Inicio</a></li>
+    <li><a href="{% url 'bandana'%}">Bandanas</a></li>
+    <li><a href="{% url 'correas'%}">Correas</a></li>
+    <li><a href="{% url 'identificador'%}">Identificacion</a></li>
+    <li><a href="{% url 'historial'%}">Historial</a></li>
+    <li><a href="{% url 'carro'%}">Carro</a></li>
+    <li><a href="">Suscribirse</a></li>
+    <li><a href="{% url 'inicio'%}">Cerrar Sesion</a></li>
+</ul>
+
+<tr>
+<td>ID Venta</td>
+<td>Total Venta</td>
+</tr>
+<tr>
+{%  for v in venta%}
+
+{% endfor %}
+<tr>
+
+<!--Footer-->
+<div class = "footer"></div>
+</body>
+</html>

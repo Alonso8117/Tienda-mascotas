@@ -1,0 +1,72 @@
+/* Menu */
+  
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+  
+.cf:after {
+  clear: both;
+  }
+  
+.cf {
+  *zoom: 1;
+  }
+  
+/* Mini reset, no margins, paddings or bullets */
+.menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+  
+/* Main level */
+.menu {			
+  margin: 50px auto;
+  width: 800px;
+  /* http://www.red-team-design.com/horizontal-centering-using-css-fit-content-value */
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  width: fit-content;	
+}
+  
+.menu > li {
+  background:rgb(1, 177, 118);
+  float: left;
+  position: relative;
+  transform: skewX(25deg);
+}
+  
+.menu a {
+  display: block;
+  color:black;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: Arial, Helvetica;
+  font-size: 14px;
+}		
+  
+.menu li:hover {
+  background:#C7FFD8;
+}		
+  
+.menu > li > a {
+  transform: skewX(-25deg);
+  padding: 1em 2em;
+}
+  
+.menu > li:hover .submenu,
+.menu > li:hover .submenu li {
+  opacity: 1;
+  visibility: visible;
+}		
+  
+.menu > li:hover .submenu li:nth-child(even){
+  transform: skewX(25deg) translateX(15px);			
+}
+  
+.menu > li:hover .submenu li:nth-child(odd){
+  transform: skewX(-25deg) translateX(-15px);			
+}
+  

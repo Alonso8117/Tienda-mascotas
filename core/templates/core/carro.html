@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <title>Pagina_Inicial</title>
+    <meta name="description" content="website description" />
+    <meta name="keywords" content="website keywords, website keywords" />
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <!-- Call CSS -->
+    <link rel="stylesheet" href="{% static 'core/css/carro.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/index.css' %}">
+    <!-- Call CSS -->
+    <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
+    <!-- Call JS -->
+    <script src={% static "core/js/bootstrap.min.js" %}> </script>
+
+
+</head>
+
+<body>
+
+    <!--Imagen -->
+    <div>
+        <h1 class="texto"> <img src="https://image.freepik.com/vector-gratis/petshop-gato-perro_9645-763.jpg"
+                width="200">Pet Shop
+    </div>
+
+    <!--Menu-->
+
+    <ul class="menu cf">
+        <li><a href="{% url 'index'%}">Inicio</a></li>
+        <li><a href="{% url 'bandana'%}">Bandanas</a></li>
+        <li><a href="{% url 'correas'%}">Correas</a></li>
+        <li><a href="{% url 'identificador'%}">Identificacion</a></li>
+        <li><a href="{% url 'historial'%}">Historial</a></li>
+        <li><a href="{% url 'carro'%}">Carro</a></li>
+        <li><a href="">Suscribirse</a></li>
+        <li><a href="{% url 'inicio'%}">Cerrar Sesion</a></li>
+    </ul>
+
+    <div class="container">
+
+        <div class="carro-title">
+            <h1>Carrito de Compra</h1>
+        </div>
+        {% for c in carrito %}
+            <div class="carro">
+                <div class="carro-row">
+                    <img class="carro-img" src="{{c.producto.imagen}}" />
+                </div>
+                <div class="carro-row">
+                    1 X {{c.producto.nom_producto}}
+                </div>
+                <div class="carro-row">
+                        ${{c.producto.precio}}
+                    </div>
+                <div class="carro-row">
+                    <form action="{% url 'eliminar_producto_carrito' c.producto.id_producto %}" method="post" id="form">
+                        {% csrf_token %}
+                        <a > <button class="carro-eliminar">Eliminar</button></a>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="container" style="margin: 50px; padding: 0 30%">
+        <form action="{% url 'guardar_venta' %}" method="post" id="form">
+            {% csrf_token %}
+            <div class="form-check" style="margin: 10px; text-align: center;">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Desea subscribirse para obtener beneficios?</label>
+            </div>
+            <a > <button class="carro-guardar">Realizar Compra</button></a>
+        </form>
+    </div>
+
+<br></br>    
+<br></br>    
+<!--Footer-->
+<div class = "footer"></div>
+</body>
+
+</html>
